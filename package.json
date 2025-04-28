@@ -12,7 +12,9 @@
     "mcp-server-flatfile": "dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "package.json",
+    "README.md"
   ],
   "scripts": {
     "build": "tsc && shx chmod +x dist/*.js",
@@ -33,7 +35,7 @@
     "@biomejs/biome": "1.9.4",
     "@types/bun": "latest",
     "np": "^10.2.0",
-    "npm-check-updates": "^18.0.0",
+    "npm-check-updates": "^18.0.1",
     "shx": "^0.4.0",
     "typescript": "^5.8.3"
   },

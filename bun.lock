@@ -12,7 +12,7 @@
         "@biomejs/biome": "1.9.4",
         "@types/bun": "latest",
         "np": "^10.2.0",
-        "npm-check-updates": "^18.0.0",
+        "npm-check-updates": "^18.0.1",
         "shx": "^0.4.0",
         "typescript": "^5.8.3",
       },
@@ -443,7 +443,7 @@
 
     "np": ["np@10.2.0", "", { "dependencies": { "chalk": "^5.4.1", "chalk-template": "^1.1.0", "cosmiconfig": "^8.3.6", "del": "^8.0.0", "escape-goat": "^4.0.0", "escape-string-regexp": "^5.0.0", "execa": "^8.0.1", "exit-hook": "^4.0.0", "github-url-from-git": "^1.5.0", "hosted-git-info": "^8.0.2", "ignore-walk": "^7.0.0", "import-local": "^3.2.0", "inquirer": "^12.3.2", "is-installed-globally": "^1.0.0", "is-interactive": "^2.0.0", "is-scoped": "^3.0.0", "issue-regex": "^4.3.0", "listr": "^0.14.3", "listr-input": "^0.2.1", "log-symbols": "^7.0.0", "meow": "^13.2.0", "new-github-release-url": "^2.0.0", "npm-name": "^8.0.0", "onetime": "^7.0.0", "open": "^10.0.4", "p-memoize": "^7.1.1", "p-timeout": "^6.1.4", "path-exists": "^5.0.0", "pkg-dir": "^8.0.0", "read-package-up": "^11.0.0", "read-pkg": "^9.0.1", "rxjs": "^7.8.1", "semver": "^7.6.0", "symbol-observable": "^4.0.0", "terminal-link": "^3.0.0", "update-notifier": "^7.3.1" }, "bin": { "np": "source/cli.js" } }, "sha512-7Pwk8qcsks2c9ETS35aeJSON6uJAbOsx7TwTFzZNUGgH4djT+Yt/p9S7PZuqH5pkcpNUhasne3cDRBzaUtvetg=="],
 
-    "npm-check-updates": ["npm-check-updates@18.0.0", "", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-ymh9KF/xcGypQuCr5NQw1pAMRh5mHnQQDgHwM8gQBG8siG9XAKvcP9OtoARxFRgOjzEfjD6YtU/7KB2jJqGGlQ=="],
+    "npm-check-updates": ["npm-check-updates@18.0.1", "", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-MO7mLp/8nm6kZNLLyPgz4gHmr9tLoU+pWPLdXuGAx+oZydBHkHWN0ibTonsrfwC2WEQNIQxuZagYwB67JQpAuw=="],
 
     "npm-name": ["npm-name@8.0.0", "", { "dependencies": { "is-scoped": "^3.0.0", "is-url-superb": "^6.1.0", "ky": "^1.2.0", "lodash.zip": "^4.2.0", "org-regex": "^1.0.0", "p-map": "^7.0.1", "registry-auth-token": "^5.0.2", "registry-url": "^6.0.1", "validate-npm-package-name": "^5.0.0" } }, "sha512-DIuCGcKYYhASAZW6Xh/tiaGMko8IHOHe0n3zOA7SzTi0Yvy00x8L7sa5yNiZ75Ny58O/KeRtNouy8Ut6gPbKiw=="],
 
