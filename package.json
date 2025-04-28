@@ -1,6 +1,6 @@
 {
   "name": "@flatfile/mcp-server",
-  "version": "0.0.18",
+  "version": "0.1.0",
   "description": "MCP Server for Flatfile's API.",
   "license": "ISC",
   "author": "Flatfile, Inc.",
