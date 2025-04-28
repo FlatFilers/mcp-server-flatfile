@@ -1,0 +1,41 @@
+{
+  "name": "@flatfile/mcp-server",
+  "version": "0.0.17",
+  "description": "MCP Server for Flatfile's API.",
+  "license": "ISC",
+  "author": "Flatfile, Inc.",
+  "homepage": "https://flatfile.com",
+  "bugs": "https://github.com/FlatFilers/mcp-server-flatfile/issues",
+  "module": "index.ts",
+  "type": "module",
+  "bin": {
+    "mcp-server-flatfile": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "check": "biome check && bun check:types",
+    "check:types": "tsc --noEmit",
+    "fix": "biome check --write",
+    "ci": "bun run build && bun run check",
+    "release": "npm run ci && np --no-tests"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "node-fetch": "^3.3.2",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/bun": "latest",
+    "np": "^10.2.0",
+    "npm-check-updates": "^18.0.0",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "bun@1.2.10"
+}

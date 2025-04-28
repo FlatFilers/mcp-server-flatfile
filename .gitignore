@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/**/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# dotenv environment variable files
+.env*
+!.env.test
+!.env.example
+
+dist/
