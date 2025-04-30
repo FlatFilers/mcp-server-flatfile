@@ -1,8 +1,18 @@
 # Flatfile MCP Server
 
-MCP Server for the Flatfile API.
+The Flatfile MCP Server enables AI assistants such as Claude Desktop, Claude Code, Cursor, and other to interact directly with your Flatfile data. This MCP Server creates a seamless bridge between AI assistants and Flatfile.
 
-## Setup
+## ✨ Features
+
+- Supports 100+ Flatfile API endpoints
+- View and manage Sheets, Workbooks, Spaces, and more
+- Add, edit, and delete Records
+- Ask questions about your data
+- Generate Sheets from natural language
+- Create new Workbooks from scratch
+- And more!
+
+## 🛠️ Setup
 
 You will need either a Flatfile Personal Access Token or a Flatfile API Key.
 
@@ -81,7 +91,7 @@ Add the following to your `.cursor/mcp.json`:
 }
 ```
 
-## Tools
+## 🔧 Available Tools
 
 * **ackEvent** - Acknowledge an event: Acknowledge an event
 * **ackJob** - Acknowledge a job: Acknowledge a job and return the job
@@ -106,7 +116,6 @@ Add the following to your `.cursor/mcp.json`:
 * **createDraftSpace** - Create a draft of a space: Creates a draft of a space
 * **createEnvironment** - Create an environment: Create a new environment
 * **createEvent** - Create an event: Create an event
-* **createGuest** - Create a guest: Guests are only there to upload, edit, and download files and perform their tasks in a specific Space.
 * **createGuidanceSpace** - Create a new guidance: Creates a new guidance
 * **createGuideEnvironment** - Create a guide: Creates a guide
 * **createIdVersion** - createId: createId
@@ -143,7 +152,7 @@ Add the following to your `.cursor/mcp.json`:
 * **deleteRoutine** - Delete a routine: Deletes a routine
 * **deleteRuleMapping** - Delete a mapping rule: Deletes a mapping rule from a program
 * **deleteRunbook** - Delete a runbook: Deletes a runbook
-* **deleteSecret** - Delete a secret by it\
+* **deleteSecret** - Delete a secret by it
 * **deleteSheet** - Delete a sheet: Deletes a specific sheet from a workbook
 * **deleteSnapshot** - Delete a snapshot: Deletes a snapshot of a sheet
 * **deleteSpace** - Delete a space: Delete a space
@@ -156,7 +165,6 @@ Add the following to your `.cursor/mcp.json`:
 * **duplicateSheet** - Duplicate a sheet: Creates a copy of a sheet including all its data within the same workbook
 * **executeJob** - Execute a job: Execute a job and return the job
 * **failJob** - Fail a job: Fail a job and return the job
-* **findAndReplaceRecords** - Finds and replaces field values matching search criteria : Searches for all values that match the \
 * **getAction** - Get an action: Get an action
 * **getAgent** - Get an agent: Get an agent
 * **getAgentExport** - Get an agent export: Get an agent export
@@ -179,10 +187,9 @@ Add the following to your `.cursor/mcp.json`:
 * **getEnvironment** - Get an environment: Returns a single environment
 * **getEnvironmentAgentExecutionsAgents** - Get all executions in your environment: Get all executions in your environment
 * **getEnvironmentAgentLogsAgents** - Get all agent logs in your environment: Get all agent logs in your environment
-* **getEnvironmentEventTokenEnvironments** - Get environment subscription credentials: Get a token which can be used to subscribe to events for this environment
 * **getEvent** - Get an event: Get an event
 * **getEventTokenEvents** - Get subscription credentials: Get a token which can be used to subscribe to events for this space
-* **getExecutionPlanJob** - Get a job\
+* **getExecutionPlanJob** - Get a job
 * **getFile** - Get a file: Get a file
 * **getGuest** - Get a guest: Returns a single guest
 * **getGuestToken** - Get guest token: Returns a single guest token
@@ -209,14 +216,12 @@ Add the following to your `.cursor/mcp.json`:
 * **getWorkbookCommits** - Get commits for a workbook: Returns the commits for a workbook
 * **indicesRecords** - Get record Indices: Returns indices of records from a sheet in a workbook
 * **insertRecords** - Insert records: Adds records to a workbook sheet
-* **inviteGuest** - Invite guests: Guests can be created as a named guest on the Space or there’s a global link that will let anonymous guests into the space.
 * **listAgentExports** - List agent exports: List agent exports
 * **listAgentRoles** - List Agent Roles: Lists roles assigned to an agent.
 * **listAgents** - List agents: List agents
 * **listApps** - List apps: Returns apps in an account
 * **listAssistant** - List prompts: Returns prompts created by user
 * **listCanvasAreas** - List canvas areas: Returns a list of canvas areas filtered by canvas, space, or environment
-* **listDataRetentionPolicies** - List data retention policies: Returns all data retention policies on an account matching a filter for environmentId
 * **listDocuments** - List documents: Returns all documents for a space
 * **listEntitlements** - List entitlements: Returns all entitlements matching a filter for resourceId
 * **listEnvironments** - List environments: Get all environments
@@ -260,8 +265,8 @@ Add the following to your `.cursor/mcp.json`:
 * **updateDataRetentionPolicy** - Update a data retention policy: Updates a single data retention policy
 * **updateDocument** - Update a document: updates a single document, for only the body and title
 * **updateEnvironment** - Update an environment: Updates a single environment, to change the name for example
-* **updateExecutionPlanFieldsJob** - Update a job\
-* **updateExecutionPlanJob** - Replace a job\
+* **updateExecutionPlanFieldsJob** - Update a job
+* **updateExecutionPlanJob** - Replace a job
 * **updateFile** - Update a file: Update a file, to change the workbook id for example
 * **updateGuest** - Update a guest: Updates a single guest, for example to change name or email
 * **updateGuidanceSpace** - Update a guidance: Updates a guidance with the given id
@@ -277,7 +282,6 @@ Add the following to your `.cursor/mcp.json`:
 * **updateSpace** - Update a space: Update a space, to change the name for example
 * **updateUser** - Update a user: Updates a user
 * **updateView** - Update a view: Updates a single view
-* **updateWorkbook** - Update a workbook: Updates a workbook <Note>   Adding a sheet to a workbook does not require the config object to be provided, however updating an existing sheet does. </Note> 
 * **uploadFile** - Upload a file: Upload a file
 * **upsertSecret** - Upsert a Secret: Insert or Update a Secret by name for environment or space
 * **validateSheet** - Validate a sheet: Trigger data hooks and validation to run on a sheet
