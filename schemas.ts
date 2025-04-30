@@ -246,6 +246,8 @@ export const commons_ActionWithoutLabelSchema = z.object({
   mount: commons_ActionMountSchema.optional(),
   guide: commons_GuideSchema.optional(),
   guardrail: commons_GuardrailSchema.optional(),
+  createdFrom: commons_ActionIdSchema.optional().describe('The action that this action was cloned from'),
+  lastPropagatedAt: z.string().optional().describe('The last time this action was propagated to a workbook'),
 })
 
 export const commons_ActionSchema = z
@@ -674,7 +676,7 @@ export const snapshots_RestoreOptionsSchema = z.object({
 
 export const snapshots_ChangeTypeSchema = z.enum(['createdSince', 'updatedSince', 'deletedSince'])
 
-export const dataClips_SharedLinkAccessSchema = z.enum(['Public', 'Restricted'])
+export const dataClips_SharedLinkAccessSchema = z.enum(['public', 'restricted'])
 
 export const dataClips_CreateDataClipRequestSchema = z.object({
   name: z.string().describe('The name of the DataClip.'),
@@ -715,7 +717,7 @@ export const dataClips_DataClipSchema = z.object({
   createdAt: z.string().describe('The date when the DataClip was created.'),
   guestLinkUrl: z.string().optional().describe('A URL for guests to access the DataClip.'),
   accessToken: z.string().optional().describe('A signed token associated with the guest link.'),
-  sharedLinkAccess: z.string().optional().describe('Indicates the shared link access level, Public or Restricted'),
+  sharedLinkAccess: z.string().optional().describe('Indicates the shared link access level, public or restricted'),
 })
 
 export const dataClips_DataClipResponseSchema = z.object({
@@ -966,6 +968,13 @@ export const sheets_SheetSchema = z.object({
   recordCounts: records_RecordCountsSchema
     .optional()
     .describe('The precomputed counts of records in the Sheet (may not exist).'),
+  createdFrom: commons_SheetIdSchema
+    .optional()
+    .describe('The sheet id of the template that was used to create this sheet'),
+  lastPropagatedAt: z
+    .string()
+    .optional()
+    .describe('The last time the sheet template configuration was propagated to this sheet'),
 })
 
 export const sheets_ListSheetsResponseSchema = z.object({
@@ -1138,6 +1147,13 @@ export const workbooks_WorkbookSchema = z.object({
   createdAt: z.string().describe('Date the workbook was created'),
   expiredAt: z.string().optional().describe('Date the workbook was created'),
   storageType: z.string().optional().describe('The storage type of the workbook'),
+  createdFrom: commons_WorkbookIdSchema
+    .optional()
+    .describe('The workbook id of the template that was used to create this workbook'),
+  lastPropagatedAt: z
+    .string()
+    .optional()
+    .describe('The last time the workbook template configuration was propagated to this workbook'),
 })
 
 export const workbooks_ListWorkbooksResponseSchema = z.object({
@@ -1647,6 +1663,13 @@ export const agents_AgentSchema = z
     updatedAt: z.string(),
     accountId: commons_AccountIdSchema,
     environmentId: commons_EnvironmentIdSchema,
+    createdFrom: commons_AgentIdSchema
+      .optional()
+      .describe('The agent id of the template that was used to create this agent'),
+    lastPropagatedAt: z
+      .string()
+      .optional()
+      .describe('The last time the agent template configuration was propagated to this agent'),
   })
   .merge(agents_AgentConfigSchema)
 
@@ -1907,7 +1930,7 @@ export const spaces_InternalSpaceConfigBaseSchema = z.object({
   settings: spaces_SpaceSettingsSchema.optional().describe('The Space settings.'),
   actions: z.array(commons_ActionSchema).optional(),
   access: z.array(spaces_SpaceAccessSchema).optional(),
-  autoConfigure: z.boolean().optional(),
+  autoConfigure: z.boolean().optional().describe('Only used during creation - will be ignored on update'),
   namespace: z.string().optional(),
   labels: z.array(z.string()).optional(),
   translationsPath: z.string().optional(),
@@ -1942,6 +1965,13 @@ export const spaces_SpaceSchema = z
     size: spaces_SpaceSizeSchema.optional().describe('Size information for the space'),
     upgradedAt: z.string().optional().describe('Date when the space was upgraded'),
     guestAuthentication: z.array(environments_GuestAuthenticationEnumSchema).describe('Type of guest authentication'),
+    createdFrom: commons_SpaceIdSchema
+      .optional()
+      .describe('The space id of the template that was used to create this space'),
+    lastPropagatedAt: z
+      .string()
+      .optional()
+      .describe('The last time the space template configuration was propagated to this space'),
   })
   .merge(spaces_InternalSpaceConfigBaseSchema)
 
@@ -2112,6 +2142,13 @@ export const spaces_GuidanceResourceSchema = z.object({
   id: commons_GuidanceIdSchema,
   guideSlug: z.string(),
   options: spaces_GuidanceOptionsSchema,
+  createdFrom: commons_GuidanceIdSchema
+    .optional()
+    .describe('The guidance id of the template that was used to create this guidance'),
+  lastPropagatedAt: z
+    .string()
+    .optional()
+    .describe('The last time the guidance template configuration was propagated to this guidance'),
 })
 
 export const spaces_GuidanceApiCreateDataSchema = z.object({
@@ -2339,6 +2376,13 @@ export const documents_DocumentSchema = z
     environmentId: commons_EnvironmentIdSchema.optional(),
     createdAt: z.string().describe('Date the document was created'),
     updatedAt: z.string().describe('Date the document was last updated'),
+    createdFrom: commons_DocumentIdSchema
+      .optional()
+      .describe('The document id of the template that was used to create this document'),
+    lastPropagatedAt: z
+      .string()
+      .optional()
+      .describe('The last time the document template configuration was propagated to this document'),
   })
   .merge(documents_DocumentConfigSchema)
 
@@ -3353,6 +3397,8 @@ export const files_ModeSchema = z.enum(['import', 'export'])
 
 export const files_FileOriginSchema = z.enum(['filesystem', 'googledrive', 'box', 'onedrive'])
 
+export const files_FileTreatmentsSchema = z.enum(['IS_BASIC_FILE_SHAPE'])
+
 export const files_FileSchema = z.object({
   id: commons_FileIdSchema,
   name: z.string().describe('Original filename'),
@@ -3375,6 +3421,7 @@ export const files_FileSchema = z.object({
   sheetId: commons_SheetIdSchema.optional(),
   actions: z.array(commons_ActionSchema).optional(),
   origin: files_FileOriginSchema.optional(),
+  treatments: z.array(files_FileTreatmentsSchema).optional(),
 })
 
 export const files_ListFilesResponseSchema = z.object({
@@ -4315,6 +4362,7 @@ export type views_ViewUpdate = z.infer<typeof views_ViewUpdateSchema>
 export type files_ModelFileStatusEnum = z.infer<typeof files_ModelFileStatusEnumSchema>
 export type files_Mode = z.infer<typeof files_ModeSchema>
 export type files_FileOrigin = z.infer<typeof files_FileOriginSchema>
+export type files_FileTreatments = z.infer<typeof files_FileTreatmentsSchema>
 export type files_File = z.infer<typeof files_FileSchema>
 export type files_ListFilesResponse = z.infer<typeof files_ListFilesResponseSchema>
 export type files_FileResponse = z.infer<typeof files_FileResponseSchema>
